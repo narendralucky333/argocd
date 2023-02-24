@@ -1,5 +1,11 @@
 resources:
-  - deployment.yaml
-  - namespace.yaml
-  - service.yaml
-  - route.yaml
+- deployment.yaml
+- namespace.yaml
+- service.yaml
+- route.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+images:
+- digest: sha256:91c1f749ae54658d95fd2733081493b2f4ae369fcf60eee218cd5e45bbd4295e
+  name: quay.io/narendraprasadn/java:latest
+  newName: quay.io/narendraprasadn/java
