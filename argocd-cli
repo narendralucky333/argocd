@@ -1,0 +1,20 @@
+argocd cli
+curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd
+rm argocd-linux-amd64
+
+argocd 
+https://argo-cd.readthedocs.io/en/stable/getting_started/#:~:text=Getting%20Started%201%201.%20Install%20Argo%20CD%20kubectl,...%207%207.%20Sync%20%28Deploy%29%20The%20Application%20
+
+https://cloud.redhat.com/blog/from-code-to-production-with-gitops?extIdCarryOver=true&sc_cid=701f2000001OH74AAG
+
+argocd login
+argoPass=$(oc get secret/openshift-gitops-cluster -n openshift-gitops -o jsonpath='{.data.admin\.password}' | base64 -d)
+echo $argoPass
+
+argoURL=$(oc get route openshift-gitops-server -n openshift-gitops -o jsonpath='{.spec.host}{"\n"}')
+echo $argoURL
+
+argocd login --insecure --grpc-web $argoURL  --username admin --password $argoPass
+
+argocd add cluster <link>
