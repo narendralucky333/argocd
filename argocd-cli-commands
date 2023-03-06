@@ -1,10 +1,9 @@
 tekton cli commands 
 
 # Get the tar.xz
-curl -LO https://github.com/tektoncd/cli/releases/download/v0.29.1/tkn_0.29.1_Darwin_all.tar.gz
+curl -LO https://github.com/tektoncd/cli/releases/download/v0.8.0/tkn_0.8.0_Darwin_x86_64.tar.gz
 # Extract tkn to your PATH (e.g. /usr/local/bin)
-sudo tar xvzf tkn_0.29.1_Darwin_all.tar.gz -C /usr/local/bin tkn
-
+sudo tar xvzf tkn_0.8.0_Darwin_x86_64.tar.gz -C /usr/local/bin tkn
 
 argocd cli
 curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
