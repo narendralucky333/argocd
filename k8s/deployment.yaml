@@ -15,7 +15,7 @@ spec:
         app: vote-ui
     spec:
       containers:
-        - image: quay.io/narendraprasadn/java:test
+        - image: quay.io/narendraprasadn/java:latest
           imagePullPolicy: Always
           name: vote-ui
           ports:
