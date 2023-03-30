@@ -8,4 +8,4 @@ resources:
 images:
 - digest: sha256:c2c8df1cbf47a1442e0b97d77270179dbddcdc671f8ed861dd345aaeb99f20a4
   name: quay.io/narendraprasadn/java:latest
-  newName: quay.io/narendraprasadn/java
+  newName: quay.io/narendraprasadn/java:dev
