@@ -1,0 +1,10 @@
+--- configure cicd application into service mesh
+create a Control plane and Member role in servicemesh operator.
+deploy an Application with side car proxy
+create a Service for this pod (directs the internal traffic to the pods)
+create a Gateway for this application (in servicemesh aloows incoming connections to the application)
+create a Virtualservice (defines traffic rules from istio gateway slipting the traffic at each version)
+create a Another application with side car proxy
+create a Destination rules (represent the traffic at each version)
+modify the Virtualservice and gives trafiic for the two versions.
+after go to kiali check the traffic for the application.
