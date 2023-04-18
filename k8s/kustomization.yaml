@@ -6,7 +6,7 @@ resources:
 - route.yaml
 - service.yaml
 images:
-- digest: sha256:f90e46dfae1e9ac67f45e40fd0ab035dc22c7ca16aea2d542e68b87919285967
+- digest: sha256:04512ddd4c29d6485f257422e47189aec0248a2e2054569b2faaa4531b6ed556
   name: quay.io/narendraprasadn/java:dev
   newName: quay.io/narendraprasadn/java:9a94d892332f3a7c84ea4952d9680c13c55e033c
 - digest: sha256:6d743f627726e5725a226d6a39cfc2d719c8e242eab19e336bafb270d180b594
