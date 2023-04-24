@@ -1,0 +1,122 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello
+spec:
+  selector:
+    matchLabels:
+      app: hello
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: hello
+        version: v1
+      annotations:
+        sidecar.istio.io/inject: "true"
+    spec:
+      containers:
+        - name: hello
+          image: quay.io/narendraprasadn/java:dev
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+          - name: TEXT
+            value: Hello Team
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello
+  labels:
+    app: hello
+spe:
+  selector:
+    app: hello
+  ports:
+  - name: http
+    port: 8080
+    targetport: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: welcome
+spec:
+  selector:
+    matchLabels:
+      app: welcome
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: welcome
+        version: v1
+      annotations:
+        sidecar.istio.io/inject: "true"
+    spec:
+      containers:
+        - name: welcome
+          image: quay.io/narendraprasadn/java:dev
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+          - name: TEXT
+            value: Welcome
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: welcome
+  labels:
+    app: welcome
+spe:
+  selector:
+    app: welcome
+  ports:
+  - name: http
+    port: 8080
+    targetport: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: welcome-2
+spec:
+  selector:
+    matchLabels:
+      app: welcome-2
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: welcome-2
+        version: v1
+      annotations:
+        sidecar.istio.io/inject: "true"
+    spec:
+      containers:
+        - name: welcome-2
+          image: quay.io/narendraprasadn/java:dev
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+          - name: TEXT
+            value: "!!"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: welcome-2
+  labels:
+    app: welcome-2
+spe:
+  selector:
+    app: welcome-2
+  ports:
+  - name: http
+    port: 8080
+    targetport: 8080
