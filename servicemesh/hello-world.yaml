@@ -24,6 +24,8 @@ spec:
           env:
           - name: TEXT
             value: Hello Team
+          - name: NEXT
+            value: "welcome:8080"
 ---
 apiVersion: v1
 kind: Service
@@ -65,6 +67,8 @@ spec:
           env:
           - name: TEXT
             value: Welcome
+          - name: NEXT
+            value: "welcome-2:8080"
 ---
 apiVersion: v1
 kind: Service
