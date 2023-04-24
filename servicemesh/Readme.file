@@ -8,3 +8,9 @@ create a Another application with side car proxy
 create a Destination rules (represent the traffic at each version)
 modify the Virtualservice and gives trafiic for the two versions.
 after go to kiali check the traffic for the application.
+
+
+---
+for checking the versions of serrvice mesh inside cluster only
+    command is        for ((i=1;i<=10;i++)) do curl routeurl ; done     
+    (it will show traffic for the application whether how much having v1 and v2 versions as a output)
