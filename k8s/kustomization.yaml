@@ -9,6 +9,6 @@ images:
 - digest: sha256:d1c20774e1a38c20bf03b2218d6a1c6f8758013fb4d630a3134c9d93f3c2892f
   name: quay.io/narendraprasadn/java:dev
   newName: quay.io/narendraprasadn/java:8759cdabd52f15035c8f19f63bdcfd65e529bef4
-- digest: sha256:6d743f627726e5725a226d6a39cfc2d719c8e242eab19e336bafb270d180b594
+- digest: sha256:d593e688fbc9c330849de347e3ee8bf9fbedf3f4e2fbef7b3680be4f91c2728c
   name: quay.io/narendraprasadn/java:latest
-  newName: quay.io/narendraprasadn/java:20febeb66fa1fcb95ee895a06686cf9a778db6b6
+  newName: quay.io/narendraprasadn/java:8759cdabd52f15035c8f19f63bdcfd65e529bef4
