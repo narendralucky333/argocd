@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: myapp
-          image: quay.io/narendraprasadn/java:dev
+          image: quay.io/sachinayyar/tekton-argocd:dev
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
