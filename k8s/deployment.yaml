@@ -1,30 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app: vote-ui
-  name: vote-ui
+  name: myapp-v1
 spec:
-  replicas: 1
   selector:
     matchLabels:
-      app: vote-ui
+      app: myapp
+  replicas: 1
   template:
     metadata:
       labels:
-        app: vote-ui
+        app: myapp
+        version: v1
+      annotations:
+        sidecar.istio.io/inject: "true"
     spec:
       containers:
-        - image: quay.io/narendraprasadn/java:dev
+        - name: myapp
+          image: quay.io/narendraprasadn/java:dev
           imagePullPolicy: Always
-          name: vote-ui
           ports:
             - containerPort: 8080
-              protocol: TCP
-            - containerPort: 9090
-              protocol: TCP
-          env:
-            - name: VOTING_API_SERVICE_HOST
-              value: vote-api
-            - name: VOTING_API_SERVICE_PORT
-              value: "9000"
+
