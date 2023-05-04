@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp-v1
+  name: vote-ui
 spec:
   selector:
     matchLabels:
-      app: myapp
+      app: vote-ui
   replicas: 1
   template:
     metadata:
       labels:
-        app: myapp
+        app: vote-ui
         version: v1
       annotations:
         sidecar.istio.io/inject: "true"
     spec:
       containers:
-        - name: myapp
+        - name: vote-ui
           image: quay.io/narendraprasadn/java:dev
           imagePullPolicy: Always
           ports:
