@@ -5,3 +5,4 @@ resources:
 - virtualservice.yaml
 - gateway.yaml
 - service.yaml
+- namespace.yaml
