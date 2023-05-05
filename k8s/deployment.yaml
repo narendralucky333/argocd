@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: vote-ui
-          image: quay.io/sachinayyar/tekton-argocd:dev
+          image: quay.io/narendraprasadn/java:dev
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
