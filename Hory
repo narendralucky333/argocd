@@ -1,0 +1,51 @@
+---
+      horizontal pod autoscaler (HPA)
+In OpenShift, a horizontal pod autoscaler (HPA) is a Kubernetes controller that automatically scales the number of replicas (pods) of a deployment or replica set 
+based on CPU utilization, memory usage, or other metrics. It ensures that there are enough pods to handle the incoming traffic and scale them up or down as needed.
+
+     Vertical Pod Autoscaler (VPA)
+A Vertical Pod Autoscaler (VPA) is a Kubernetes controller that adjusts the resource limits and requests of containers based on their actual usage. 
+It can increase or decrease the CPU and memory resources allocated to each container to improve their performance and efficiency.
+
+---
+ Deploy the Horizontal pod autoscaler 
+ 
+      -- deploy the application using minimum replicas 
+      -- create HPA with minimum and maximum replicas then attach the HPA to deployment (mention deployment app name in HPA )
+      
+      conclusion
+          -- if you put 3 minimum replicas and 7 desired (maximum) replicas in HPA. and you have only 2 replicas in deployment then it will create automatically 1 more 
+          replica because of we have given 3 minimum replicas in HPA.
+          
+          how many replicas you have given in HPA minimum replicas that much replicas it will create automatically , if application is going to access peak stage 
+          it will automatically created how many replicasit neede within the maximum replicas.
+          
+      
+    ----
+       HPA yaml file
+       
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: example
+  namespace: service-mesh
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: example
+  minReplicas: 1
+  maxReplicas: 3
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          averageUtilization: 50
+          type: Utilization
+          
+          
+          
+          
+          or else instead of metrics we can use this 
+          #targetCPUUtilizationPercentage: 70
