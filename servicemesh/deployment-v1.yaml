@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: myapp
-          image: quay.io/monishkumar/project-demo:dev1
+          image: quay.io/narendraprasadn/java:dev
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
