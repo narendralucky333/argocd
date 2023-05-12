@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp-v2
+  name: myapp-v1
 spec:
   selector:
     matchLabels:
@@ -11,13 +11,13 @@ spec:
     metadata:
       labels:
         app: myapp
-        version: v2
+        version: v1
       annotations:
         sidecar.istio.io/inject: "true"
     spec:
       containers:
         - name: myapp
-          image: quay.io/sachinayyar/tekton-argocd:sac
+          image: quay.io/rohanp/tomcat:dev1
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
