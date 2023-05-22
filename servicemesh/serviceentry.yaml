@@ -4,7 +4,7 @@ metadata:
   name: my-service-entry
 spec:
   hosts:
-    - '*'
+    - "*"
   ports:
     - number: 80
       name: http
