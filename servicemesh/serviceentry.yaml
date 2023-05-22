@@ -4,7 +4,7 @@ metadata:
   name: my-service-entry
 spec:
   hosts:
-    - www.vinothbalakrishna.tech
+    - "*"
   ports:
     - number: 80
       name: http
