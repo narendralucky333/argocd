@@ -1,0 +1,7 @@
+---
+create a Namespace and deploy Database pod 
+---
+create another Namespace and deploy Api pod
+in this same namespace create a secret with the help of database credentials. and in Host mention(namespace nmae.svc.cluster.local)
+afetr that add it to workload to whom you connect.
+api connected with database and access the data.
