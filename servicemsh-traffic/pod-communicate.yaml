@@ -15,24 +15,39 @@ spec:
       containers:
         - name: frontend
           image: quay.io/narendraprasadn/java-cicd
-          # Add container specifications as needed
+          imagePullPolicy: Always
+          ports:
+           - containerport: 8080
           env:
             - name: BACKEND_HOST
-              value: backend-service
+              value: backend
             - name: BACKEND_PORT
-              value: "3306"
+              value: "8080"
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: backend-service
+  name: frontend
 spec:
   selector:
-    app: backend
+    app: frontend
   ports:
-    - protocol: TCP
-      port: 3306
-      targetPort: 3306
+    - prot: 8080
+      name: http
+      targetPort: 8080
+---
+apiVersion: v1
+kind: Route
+metadata:
+  name: frontend
+spec:
+  port:
+    targetPort: http
+  to:
+    kind: Service
+    name: frontend
+    weight: 100
+  wildcardPolicy: None
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -51,4 +66,18 @@ spec:
       containers:
         - name: backend
           image: mysql
-          # Add container specifications as needed
+          imagePullPolicy: Always
+          ports:
+           - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+spec:
+  selector:
+    app: backend
+  ports:
+    - prot: 8080
+      name: http
+      targetPort: 8080
