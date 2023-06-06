@@ -12,3 +12,35 @@ spec:
         protocol: HTTP
       hosts:
         - "*"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: httpbin
+  namespace: data-plane
+spec:
+  host: istio-egressgateway.control-plane.svc.cluster.local
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: myapp
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - myapp-gateway
+  http:
+  - route:
+    - destination:
+        host: myapp
+        subset: v1
+        port:
+          number: 8080
+      weight: 80
+    - destination:
+        host: myapp
+        subset: v2
+        port:
+          number: 8080
+      weight: 20
