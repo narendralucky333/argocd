@@ -1,16 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-deployment
+  name: backend
 spec:
   selector:
     matchLabels:
       app: backend
+      version:v1
   replicas: 1
   template:
     metadata:
       labels:
         app: backend
+        version:v1
     spec:
       containers:
         - name: backend
@@ -41,16 +43,18 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-deployment
+  name: frontend
 spec:
   selector:
     matchLabels:
       app: frontend
+      version:v1
   replicas: 1
   template:
     metadata:
       labels:
         app: frontend
+        version:v1
     spec:
       containers:
         - name: frontend
