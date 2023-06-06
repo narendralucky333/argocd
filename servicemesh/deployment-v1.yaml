@@ -21,3 +21,9 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
+          env:
+            - name: BACKEND_HOST
+              value: backend-service
+            - name: BACKEND_PORT
+              value: "3306"
+              
