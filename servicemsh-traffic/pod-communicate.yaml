@@ -1,6 +1,46 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: backend-deployment
+spec:
+  selector:
+    matchLabels:
+      app: backend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: mysql
+          imagePullPolicy: Always
+          ports:
+           - containerPort: 8080
+         env:
+          - name: APP_BACKEND
+            value: https://httpbin.org/status/200
+          - name: APP_VERSION
+            value: v1
+          - name: quarkus.log.console.color
+            value: 'false'
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+spec:
+  selector:
+    app: backend
+  ports:
+    - prot: 8080
+      name: http
+      targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
   name: frontend-deployment
 spec:
   selector:
@@ -14,7 +54,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: quay.io/narendraprasadn/java-cicd
+          image: quay.io/narendraprasadn/java-cicd:dev
           imagePullPolicy: Always
           ports:
            - containerport: 8080
@@ -48,36 +88,3 @@ spec:
     name: frontend
     weight: 100
   wildcardPolicy: None
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: backend-deployment
-spec:
-  selector:
-    matchLabels:
-      app: backend
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: backend
-    spec:
-      containers:
-        - name: backend
-          image: mysql
-          imagePullPolicy: Always
-          ports:
-           - containerPort: 8080
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: backend
-spec:
-  selector:
-    app: backend
-  ports:
-    - prot: 8080
-      name: http
-      targetPort: 8080
