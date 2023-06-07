@@ -4,7 +4,7 @@ metadata:
   name: myapp
 spec:
   hosts:
-  - "*"
+  - myapp.apps.SUBDOMAIN
   gateways:
   - myapp-gateway
   http:
