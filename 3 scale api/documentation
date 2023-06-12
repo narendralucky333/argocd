@@ -1,0 +1,5 @@
+---
+Backend containing at least the URL of your API. The backend can optionally have mapping rules, methods and metrics to facilitate reusability.
+Product where you define the application plans, and configure APIcast. 
+
+Creat a backend using the API base url
