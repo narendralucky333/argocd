@@ -1,15 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+namespace: argocd-test-narendra
 resources:
-- deployment.yaml
-- namespace.yaml
-images:
-- digest: sha256:d831d59c6837454ae2823ca751d7d101d4b23375a0dd18bd9c4d25a6cef9e81b
-  name: quay.io/narendraprasadn/java-cicd:dev
-  newName: quay.io/narendraprasadn/java-cicd:0f0b63bb95cc448b836baab1736475453dad3ea2
-- digest: sha256:3503d2b9666fd821701b124fa901b4281d98d990a4567ab15d0fced93c2997cf
-  name: quay.io/narendraprasadn/java:dev
-  newName: quay.io/narendraprasadn/java:8759cdabd52f15035c8f19f63bdcfd65e529bef4
-- digest: sha256:d593e688fbc9c330849de347e3ee8bf9fbedf3f4e2fbef7b3680be4f91c2728c
-  name: quay.io/narendraprasadn/java:latest
-  newName: quay.io/narendraprasadn/java:8759cdabd52f15035c8f19f63bdcfd65e529bef4
+- ../../base
+patchesStrategicMerge:
+- deployment.yml
+- service.yaml
+- route.yaml
