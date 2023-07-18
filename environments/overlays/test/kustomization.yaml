@@ -3,8 +3,6 @@ kind: Kustomization
 resources:
 - deployment.yaml
 - namespace.yaml
-- route.yaml
-- service.yaml
 images:
 - digest: sha256:d831d59c6837454ae2823ca751d7d101d4b23375a0dd18bd9c4d25a6cef9e81b
   name: quay.io/narendraprasadn/java-cicd:dev
