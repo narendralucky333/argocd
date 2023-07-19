@@ -1,5 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+<<<<<<< HEAD
 #baseDir: ../../base
 resources:
 - ../../base
@@ -25,3 +26,12 @@ patches:
       path: /spec/replicas
       value: 5
 
+=======
+namespace: argocd-preproduction-narendra
+resources:
+- ../../base
+patchesStrategicMerge:
+- deployment.yml
+- service.yaml
+- route.yaml
+>>>>>>> 27ec78148bbdfd1d1a9aa937ea9035af124d6188
