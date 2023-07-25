@@ -3,6 +3,8 @@ kind: Kustomization
 #baseDir: ../../base
 resources:
 - ../../base
+- deployment.yaml
+- namespace.yaml
 
 # Adding prefix as Dev
 namePrefix: Dev-
