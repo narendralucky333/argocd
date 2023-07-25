@@ -10,7 +10,7 @@ resources:
 namePrefix: Dev-
 
 # Namespace
-namespace: dev
+namespace: argocd-narendra-dev
    
 # common labels 
 commonLabels:
@@ -21,7 +21,7 @@ commonLabels:
 patches: 
  - target: 
      kind: Deployment 
-       name: argocd-deployment
+     name: vote-ui
    patch: |-
     - op: replace 
       path: /spec/replicas
