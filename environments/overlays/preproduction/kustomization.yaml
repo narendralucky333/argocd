@@ -4,12 +4,14 @@ kind: Kustomization
 #baseDir: ../../base
 resources:
 - ../../base
+- deployment.yaml
+- namespace.yaml
 
 # Adding prefix as Dev
 namePrefix: Preproduction-
 
 # Namespace
-namespace: preproduction
+namespace: argocd-narendra-preproduction
 
 # common labels
 commonLabels:
@@ -20,14 +22,14 @@ commonLabels:
 patches:
  - target:
      kind: Deployment
-       name: argocd-deployment
+     name: vote-ui
    patch: |-
     - op: replace
       path: /spec/replicas
       value: 5
 
 =======
-namespace: argocd-test-narendra
+namespace: argocd-narendra-preproduction
 resources:
 - ../../base
 patchesStrategicMerge:
