@@ -6,23 +6,6 @@ resources:
 - deployment.yaml
 - namespace.yaml
 
-# Adding prefix as Dev
-namePrefix: Dev-
-
 # Namespace
 namespace: argocd-narendra-dev
    
-# common labels 
-commonLabels:
- company: imss 
-   project: narendraprasadn
-
-# updating replicas
-patches: 
- - target: 
-     kind: Deployment 
-     name: vote-ui
-   patch: |-
-    - op: replace 
-      path: /spec/replicas
-      value: 5
