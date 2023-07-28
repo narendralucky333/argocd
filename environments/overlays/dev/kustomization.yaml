@@ -9,6 +9,6 @@ resources:
 # Namespace
 namespace: argocd-narendra-dev
 images:
-- digest: sha256:f68d9235217260b32b1f975aed8ec15d197d939434ed1ee0c5cdbf1c96a380de
+- digest: sha256:0bd27d4e2cf7f7c7a6d07e7e718618a4303920ee378c731f02bc9dd07c44cbbc
   name: quay.io/narendraprasadn/java-cicd:dev
   newName: quay.io/narendraprasadn/java-cicd:e2028675571743ab64cf3b8119e4c208aa32694c
