@@ -28,3 +28,6 @@ spec:
               value: vote-api
             - name: VOTING_API_SERVICE_PORT
               value: "9000"
+
+
+              
