@@ -1,4 +1,2 @@
 # argocd
 
-
-Narendra
