@@ -1,7 +1,7 @@
 # These owners will be the default owners for everything in the repo.
-*       @narendralucky333
+*       @owner1 @owner2
 
 # The `docs` directory owners
-/docs/  @narendralucky333
+/docs/  @onwer1
 
 
